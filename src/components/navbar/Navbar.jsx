@@ -1,21 +1,20 @@
 
 import Carrito from '../carrito/Carrito'
 import { GiCook } from "react-icons/gi";
+import "./Navbar.css"
 
 const Navbar = () => {
   return (
     <div>
+
       <div class="lado-izq">
-      <h2>Cook and home<GiCook /></h2>
+        <h1>Cook and home<GiCook /></h1>
+        <Carrito/>
+        <h3>burbuja</h3>
+      </div>  
+
       
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="pages/productos.html">Productos</a></li>
-        </ul>
-      </div>
-      <div class="lado-derecho">
-          <Carrito/>
-      </div>
+          
     </div>
   )
 }
