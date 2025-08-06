@@ -1,19 +1,23 @@
-import Footer from "./components/footer/Footer";
-import ItemListContainer from "./components/itemListContainer/ItemListContainer";
-import Navbar from "./components/navbar/Navbar";
+
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/layout/navbar/Navbar";
+import Footer from "./components/layout/footer/Footer";
+import ItemListContainer from "./pages/itemListContainer/ItemListContainer";
+import ItemDetailContainer from "./pages/itemDetailContainer/ItemDetailContainer";
 
 function App() {
-  
-
-  return ( 
-  <div>
-    <Navbar/>
-    <ItemListContainer mensaje="Hola user!"/>
-    <Footer/>
-  </div>
-    
-  )
-}  
-
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/categoria/:categoryId" element={<ItemListContainer />} />
+        <Route path="/detalle/:productId" element={<ItemDetailContainer />} />
+        <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
 
 export default App;
