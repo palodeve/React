@@ -4,8 +4,8 @@ export const productsMock = [
     title: "Bolso de mano negro" ,
     price: 30.000,
     descrption: "bolso de mano, tamaño pequeño de color negro",
-    imageUrl: //www.claroshop.com/producto/16903586/bolso-de-mano-para-mujer-bandolera-moda-hombro-tote-elegante-casual#modalSliderProduct
-    stock: 89 ,
+    imageUrl: "",//www.claroshop.com/producto/16903586/bolso-de-mano-para-mujer-bandolera-moda-hombro-tote-elegante-casual#modalSliderProduct
+    stock: 89,
     category: "Bolsos Pequeños",
 },
 {
@@ -13,7 +13,7 @@ export const productsMock = [
     title: "Bolso de mano rosa" ,
     price: 30.000,
     descrption: "bolso de mano, tamaño pequeño de color rosa",
-    imageUrl: "src/assets/img/21FEB529-3BC8-4DD6-A1AC-39F38683CD97.PNG
+    imageUrl: "src/assets/img/21FEB529-3BC8-4DD6-A1AC-39F38683CD97.PNG",
     stock: 55,
     category: "Bolsos Pequeños",
 },
@@ -138,14 +138,14 @@ export const productsMock = [
 
 export const getProducts = () => {
     return new Promise((resolve) => {
-        setTimeout(() => resolve(products), 1000);
+        setTimeout(() => resolve(productsMock), 1000);
     });
 };
 
 export const getProductById = (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.find((prod) => prod.id === id));
+            resolve(productsMock.find((prod) => prod.id === id));
         }, 1000);
     });
 };
@@ -153,7 +153,7 @@ export const getProductById = (id) => {
 export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            esolve(products.filter((prod) => prod.categoria === categoryId));
+            resolve(productsMock.filter((prod) => prod.categoria === categoryId));
         }, 1000);
     });
 };

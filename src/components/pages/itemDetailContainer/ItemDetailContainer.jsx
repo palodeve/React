@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../../productsMock"; ///77 ppppp
-import ItemDetail from "../../components/item/ItemDetail";
+// import ItemDetail from "../../components/item/ItemDetail";
+import { getProductById } from "../../../../productsMock";
 
 const ItemDetailContainer = () => {
   const { productId } = useParams();
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
-    getProductById(productId).then(setProducto);
+    getProductById (productId).then(setProducto);
   }, [productId]);
 
   return (
     <div className="container mt-4">
-      {producto ? <ItemDetail {...producto} /> : <p>Cargando producto...</p>}
+      {producto && <p>Cargando producto...</p>}
     </div>
   );
 };

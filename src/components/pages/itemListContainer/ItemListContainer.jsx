@@ -1,7 +1,5 @@
 import "./ItemListContainer.css"
 
-
-
 function ItemListContainer ({mensaje}) {
     return (
     <div>
