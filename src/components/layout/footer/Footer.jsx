@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Footer = () => {
-  return (
-    <div>
-      h1 jejejejjejejejejej
-    </div>
-  )
+    return (
+        <div>
+            <h2>todos los derechos reservados</h2>
+        </div>
+)
 }
 
 export default Footer

@@ -1,0 +1,12 @@
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 productos por fila */
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(172, 202, 186);
+}
+h2 {
+    text-align: center;
+    color: white;
+    background-color: #8cb983;
+}

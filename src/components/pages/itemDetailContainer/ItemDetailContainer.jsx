@@ -1,19 +1,27 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProductById } from "../../../productsMock"; ///77 ppppp
-import ItemDetail from "../../components/item/ItemDetail";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { productsMock } from '../../../../productsMock';
+
 
 const ItemDetailContainer = () => {
-  const { productId } = useParams();
-  const [producto, setProducto] = useState(null);
+    const { itemId } = useParams();
+    const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    getProductById(productId).then(setProducto);
-  }, [productId]);
+    useEffect(() => {
+    const data = productsMock.find((p) => p.id === parseInt(itemId));
+    setProduct(data);
+  }, [itemId]);
 
-  return (
-    <div className="container mt-4">
-      {producto ? <ItemDetail {...producto} /> : <p>Cargando producto...</p>}
+    if (!product) return <p>Cargando...</p>;
+
+return (
+    <div className="product-detail">
+        <img src={product.imageUrl} alt={product.title} />
+        <h2>{product.title}</h2>
+        <p>{product.descrption}</p>
+        <p>Precio: ${product.price}</p>
+        <p>Stock: {product.stock}</p>
+        <button>Agregar al carrito</button>
     </div>
   );
 };
