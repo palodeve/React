@@ -1,0 +1,16 @@
+.ImgCar {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: blueviolet;
+    color: antiquewhite;
+    border-radius: 50%;
+    min-width: 30px;    
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: o 4px;
+    
+}

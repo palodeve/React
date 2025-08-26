@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Navbar.css"
-import Carrito from '../../common/carrito/Carrito'
+//import Carrito from '../../common/carrito/Carrito'
+import Carrito from '../../common/cartWidget/cartWidget'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
 return (
