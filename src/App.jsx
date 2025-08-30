@@ -23,10 +23,7 @@ function App() {
           <Route path="/auth/login" element={<h2>login</h2>} />
           <Route path="/auth/register" element={<h2>registro</h2>} />
           <Route path="*" element={<h2>404 | Página no encontrada</h2>} />
-        
-        
-        
-        
+
         </Routes>
       </CartContextProvider>  
       <Footer />

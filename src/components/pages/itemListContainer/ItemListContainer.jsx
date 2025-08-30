@@ -1,64 +1,47 @@
-import "./ItemListContainer.css"
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-//import { productsMock } from "../../../../productsMock";
-import ProductCard from "../../product/ProductCard";
-import { db } from "../../../firebaseconf";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { db } from '../../../firebaseconf';
+import ProductCard from '../../product/ProductCard';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
-
-export const ItemListContainer = () => {
-    const { categoryId } = useParams();
+const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
+    useEffect(() => {
+        const productsCollection = collection(db, "products");
+        let consulta;
 
-    //const fetchProducts = async () => {
-     //   const data = categoryId
-     //       ? productsMock.filter((p) => p.category.trim().toLowerCase() === categoryId.toLowerCase())
-     //       : productsMock ;
-     //   setProducts(data);
-  //  };
-  //  fetchProducts();
-//}, [categoryId]);
+        if (categoryId) {
+            consulta = query(productsCollection, where("category", "==", categoryId));
+        } else {
+            consulta = productsCollection;
+        }
 
+        getDocs(consulta)
+            .then((res) => {
+                const arrayProductos = res.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setProducts(arrayProductos);
+            })
+            .catch((error) => {
+                console.error("Error al obtener los documentos:", error);
+            });
 
-useEffect(() => {
-let productsCollection = collection(db, "products");
-
-let consulta = productsCollection
-    if (categoryId) {
-        let filtrado = query(productsCollection, where("category", "==", categoryId));
-        consulta = filtrado;
-    }
-
-let getProducts = getDocs(consulta);
-getProducts.then ((res) => {
-    let arrayBien = res.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-    });
-    setProducts(arrayBien);
-});
-}, [categoryId]);
-
-
-
-//const cargarProductos = () => {
- //   let productsCollection = collection(db, "products");
- //   productsMock.forEach (products => {
-   //     addDoc (productsCollection, products)
-    // });
-
+    }, [categoryId]);
 
     return (
-        <div>
-        <h2>{categoryId ? `Categoría: ${categoryId}` : 'Todos los productos'}</h2>
-        <div className="product-list">
-            {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-            ))}
-        </div>
-        </div>
+        <>
+            <h2 className="title-category">{categoryId ? `Categoría: ${categoryId}` : 'Todos los productos'}</h2>
+            <div className="product-list">
+                {products.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+        </>
     );
-    };
+};
 
 export default ItemListContainer;

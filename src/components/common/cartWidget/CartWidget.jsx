@@ -3,41 +3,20 @@ import { IoCartOutline } from "react-icons/io5";
 import "./CartWidget.css"
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-
+import { Link } from 'react-router-dom';
 
 export const CartWidget = () => {
     const { getTotalQuanty} = useContext(CartContext);
     let total = getTotalQuanty();
 
-    return (
-        <link style= {{color : write}} to= "../Cart"> //nose
-            <div
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "5px",
-                    padding: "20px",
-                }}>
-
-            <div className="ImgCar">
-                <IoCartOutline />
-
-                <div style={ {
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "30px",
-                height: "30px",
-                borderRadius: "50%",
-                backgroundColor: "#f0f0f0",
-                color: "#333",
-            }}>
-                {total}
-            </div>
-            </div>
-            </div>
-        </link>
-
+    return ( 
+        <>
+          <Link className='je' to= "src/components/cart/Cart.jsx"> 
+                <div>
+                    {total}
+                </div>
+            </Link>
+</>
     );
 };
 

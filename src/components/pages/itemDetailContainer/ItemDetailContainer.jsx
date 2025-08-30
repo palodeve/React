@@ -22,8 +22,8 @@ const ItemDetailContainer = () => {
     //  const data = productsMock.find((p) => p.id === parseInt(itemId));
   //    setProduct(data);
   //  }, [itemId]);
-    //if (!product) return <p>Cargando...</p>;
-  
+
+if (!product) return <p>Cargando...</p>;
 return (
     <div className="product-detail">
         <img src={product.imageUrl} alt={product.title} />
@@ -38,5 +38,5 @@ return (
     </div>
   );
 }; 
-//  
+
 export default ItemDetailContainer;

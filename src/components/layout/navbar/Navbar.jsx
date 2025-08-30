@@ -1,7 +1,11 @@
 import React from 'react'
 import "./Navbar.css"
 //import Carrito from '../../common/carrito/Carrito'
-import Carrito from '../../common/cartWidget/cartWidget'
+//import { CartWidget } from '../components/cart/CartWidget';
+//import {Carrito} from '../../common/cartWidget/CartWidget'
+import Carrito from '../../common/cartWidget/CartWidget'
+import CartWidget from '../../common/cartWidget/CartWidget'
+
 import { Link } from 'react-router-dom'
 const Navbar = () => {
 return (
@@ -15,7 +19,6 @@ return (
             <Link to="/category/bolso%20facultad">Bolso Facultad</Link>
             <Link to="/category/mochila">Mochila</Link>
         </ul>
-
         <div className="lado-derecho">
             <link rel="stylesheet" href= "../Carrito"/>
             <Carrito/>
